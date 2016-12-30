@@ -5,8 +5,7 @@ displayTodos();
 // req 1.3: add todos
 addTodo('item 4');
 // req 1.4: change a todo
-todos[1] = 'item 2 v2'
-displayTodos();
+changeTodo(1, 'item 2 v2');
 // req 1.5: delete a todo
 todos.splice(1, 1)
 displayTodos();
@@ -19,5 +18,11 @@ function displayTodos() {
 // req 2.2: function for adding
 function addTodo(todo) {
     todos.push(todo);
+    displayTodos();
+}
+
+// req 2.3: function for changing
+function changeTodo(index, value) {
+    todos[index] = value;
     displayTodos();
 }
