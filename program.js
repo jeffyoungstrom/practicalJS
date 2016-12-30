@@ -7,8 +7,7 @@ addTodo('item 4');
 // req 1.4: change a todo
 changeTodo(1, 'item 2 v2');
 // req 1.5: delete a todo
-todos.splice(1, 1)
-displayTodos();
+deleteTodo(1);
 
 // req 2.1: function for display
 function displayTodos() {
