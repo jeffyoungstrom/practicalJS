@@ -26,3 +26,9 @@ function changeTodo(index, value) {
     todos[index] = value;
     displayTodos();
 }
+
+// req 2.4: function for deleteing
+function deleteTodo(index) {
+    todos.splice(index, 1);
+    displayTodos();
+}
