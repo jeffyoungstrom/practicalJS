@@ -2,10 +2,21 @@
 var todoList = {
     todos: [],
     displayTodos: function() {
-        console.log('My Todos:', todoList.todos);
-        for (var i=0; i < todoList.todos.length ; i++) {
-            var todo = todoList.todos[i];
-            console.log(todo.completed, todo.todoText);
+        if (this.todos.length === 0) {
+            // req 5.1 show message for no todos
+            console.log('You don\'t have any Todos. Take a nap!');
+        } else {
+            // req 5.1 show todoText property
+            // req 5.3 show completed property
+            console.log('My Todos:', todoList.todos);
+            for (var i=0; i < todoList.todos.length ; i++) {
+                var todo = todoList.todos[i];
+                if (todo.completed) {
+                    console.log('(x)', todo.todoText);
+                } else {
+                    console.log('( )', todo.todoText);
+                }
+            }
         }
     },
     // req 4.1 add Todo should add objects
