@@ -1,23 +1,35 @@
 // req 3.1: store todos in an object
 var todoList = {
-    todos: ['item 1', 'item 2', 'item 3'],
-    // req 3.2 method to display
+    todos: [],
     displayTodos: function() {
-        console.log('My Todos:', this.todos);
+        console.log('My Todos:', todoList.todos);
+        for (var i=0; i < todoList.todos.length ; i++) {
+            var todo = todoList.todos[i];
+            console.log(todo.completed, todo.todoText);
+        }
     },
-    // req 3.3 method to add
-    addTodo: function(todo) {
-        this.todos.push(todo);
+    // req 4.1 add Todo should add objects
+    addTodo: function(todoText) {
+        this.todos.push({
+            todoText: todoText,
+            completed: false
+        });
         this.displayTodos();
     },
-    // req 3.4 method to change
+    // req 4.2 changeTodo should change the todoText property
     changeTodo: function(index, value) {
-        this.todos[index] = value;
+        this.todos[index].todoText = value;
         this.displayTodos();
     },
     // req 3.5 method to delete
     deleteTodo: function(index) {
         this.todos.splice(index, 1);
+        this.displayTodos();
+    },
+    // req 4.3 method to toggle completed
+    toggleCompleted: function(index) {
+        var todo = this.todos[index];   // todo is a reference.  interesting.
+        todo.completed = !todo.completed;
         this.displayTodos();
     }
 };
@@ -25,9 +37,13 @@ var todoList = {
 // display todos
 todoList.displayTodos();
 // add todos
-todoList.addTodo('item 4 by method');
+todoList.addTodo('item 1');
+todoList.addTodo('item 2');
+todoList.addTodo('item 3');
 // change a todo
-todoList.changeTodo(1, 'item 2 v2 by method');
+todoList.changeTodo(1, 'item 2 v2');
 // delete a todo
-todoList.deleteTodo(1);
+todoList.deleteTodo(2);
+// toggle a todo
+todoList.toggleCompleted(0);
 
