@@ -29,3 +29,9 @@ exercises from Gordon Zhu's Practical Javascript course
 1. addTodo should add objects
 2. changeTodo should change the todoText property of the object
 3. toggleCompleted should change the completed property
+
+##V5 Requirements
+
+1. displayTodos should show todoText property
+2. displayTodos should have empty list message
+3. displayTodos should show completed value
