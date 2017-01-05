@@ -1,5 +1,6 @@
-# practicalJS
-exercises from Gordon Zhu's Practical Javascript course
+# practicalJS exercises from [Gordon Zhu's Practical Javascript](https://watchandcode.com/courses/practical-javascript/lectures/975960) course
+
+Aimed toward implementing the [Vanilla JS version of TodoMVC](http://todomvc.com/examples/vanillajs/#/active)
 
 ##V1 Requirements
 
@@ -35,3 +36,8 @@ exercises from Gordon Zhu's Practical Javascript course
 1. displayTodos should show todoText property
 2. displayTodos should have empty list message
 3. displayTodos should show completed value
+
+##V6 Requirements
+
+1. toggleAll: if everything is true, make everything false
+2. toggleAll: otherwise, make everything true
