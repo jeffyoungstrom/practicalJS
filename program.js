@@ -42,7 +42,25 @@ var todoList = {
         var todo = this.todos[index];   // todo is a reference.  interesting.
         todo.completed = !todo.completed;
         this.displayTodos();
+    },
+    toggleAll: function() {
+        var totalTodos = this.todos.length;
+        var completedTodos = 0;
+        for (var i=0; i < totalTodos; i++) {
+            if (this.todos[i].completed === true) {
+                completedTodos++;
+            }
+        }
+        // req 6.1 if all true, make all false
+        if (completedTodos === totalTodos) {
+            // make everything false
+            for (var i=0; i < totalTodos; i++) {
+                this.todos[i].completed = false;
+            }
+        }
+        this.displayTodos();
     }
+
 };
 
 // display todos
@@ -57,4 +75,8 @@ todoList.changeTodo(1, 'item 2 v2');
 todoList.deleteTodo(2);
 // toggle a todo
 todoList.toggleCompleted(0);
-
+// toggle all
+todoList.toggleAll();
+todoList.toggleCompleted(1);
+todoList.toggleAll();
+todoList.toggleAll();
