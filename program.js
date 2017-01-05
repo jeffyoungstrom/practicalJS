@@ -69,6 +69,21 @@ var todoList = {
 
 };
 
+// req 7.2 display todos button should run displayTodos
+// get access to the display todos button
+// run displayTodos method when somebody clicks its button
+var displayTodosButton = document.getElementById('displayTodosButton');
+displayTodosButton.addEventListener('click', function() {
+    todoList.displayTodos();
+});
+
+// req 7.3 toggle all button should run toggleAll
+var toggleAllButton = document.getElementById('toggleAllButton');
+toggleAllButton.addEventListener('click', function() {
+    todoList.toggleAll();
+});
+
+
 // display todos
 todoList.displayTodos();
 // add todos
@@ -84,5 +99,3 @@ todoList.toggleCompleted(0);
 // toggle all
 todoList.toggleAll();
 todoList.toggleCompleted(1);
-todoList.toggleAll();
-todoList.toggleAll();
