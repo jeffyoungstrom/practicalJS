@@ -8,9 +8,9 @@ var todoList = {
         } else {
             // req 5.1 show todoText property
             // req 5.3 show completed property
-            console.log('My Todos:', todoList.todos);
-            for (var i=0; i < todoList.todos.length ; i++) {
-                var todo = todoList.todos[i];
+            console.log('My Todos:', this.todos);
+            for (var i=0; i < this.todos.length ; i++) {
+                var todo = this.todos[i];
                 if (todo.completed) {
                     console.log('(x)', todo.todoText);
                 } else {
