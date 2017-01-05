@@ -1,4 +1,4 @@
-# practicalJS exercises from [Gordon Zhu's Practical Javascript](https://watchandcode.com/courses/practical-javascript/lectures/975960) course
+# Exercises from [Gordon Zhu's Practical Javascript](https://watchandcode.com/courses/practical-javascript/lectures/975960) course
 
 Aimed toward implementing the [Vanilla JS version of TodoMVC](http://todomvc.com/examples/vanillajs/#/active)
 
