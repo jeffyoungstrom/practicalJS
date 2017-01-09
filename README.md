@@ -48,3 +48,9 @@ Aimed toward implementing the [Vanilla JS version of TodoMVC](http://todomvc.com
 2. Clicking "Display todos" should run todoList.displayTodos
 3. Clicking "Toggle all" should run todoList.toggleAll
 
+##V8 Requirements
+
+1. It should have working controls for .addTodo
+2. It should have working controls for .change
+3. It should have working controls for .deleteTodo
+4. It should have working controls for .toggleCompleted
