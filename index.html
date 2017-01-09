@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PracticalJS todo app v7</title>
+    <title>PracticalJS todo app v8</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>todo app v7</h1>
+    <h1>todo app v8</h1>
     <p>still doesn't do anything but spew stuff to console, but now
-    has buttons that trigger things!</p>
+    has even more buttons and inputs that trigger things!</p>
 
-    <!-- req 7.1 buttons for Display Todos and Toggle All -->
-    <button id="displayTodosButton">Display todos</button>
-    <button id="toggleAllButton">Toggle all</button>
+    <!-- req 8.0 refactor -->
+    <div>
+        <button onclick="handlers.displayTodos()">Display todos</button>
+        <button onclick="handlers.toggleAll()">Toggle all</button>
+    </div>
+    
+    <!-- req 8.1 addTodo controls -->
+    <div>
+        <button onclick="handlers.addTodo()">Add</button>
+        <input id="addTodoTextInput" type="text">
+    </div>
+
+    <!-- req 8.2 changeTodo controls -->
+    <div>
+        <button onclick="handlers.changeTodo()">Change Todo</button>
+        <input id="changeTodoPositionInput" type="number">
+        <input id="changeTodoTextInput" type="text">
+    </div>
+
+    <!-- req 8.3 deleteTodo controls -->
+    <div>
+        <button onclick="handlers.deleteTodo()">Delete</button>
+        <input id="deleteTodoPositionInput" type="number">
+    </div>
+
+    <!-- req 8.4 toggleCompleted controls -->
+    <div>
+        <button onclick="handlers.toggleCompleted()">Toggle</button>
+        <input id="toggleCompletedPositionInput" type="number">
+    </div>
 
     <!-- load js late so our page is there to access -->
     <script type="text/javascript" src="program.js"></script>

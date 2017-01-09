@@ -69,20 +69,44 @@ var todoList = {
 
 };
 
-// req 7.2 display todos button should run displayTodos
-// get access to the display todos button
-// run displayTodos method when somebody clicks its button
-var displayTodosButton = document.getElementById('displayTodosButton');
-displayTodosButton.addEventListener('click', function() {
-    todoList.displayTodos();
-});
+// req 8.0 refactor event handlers
+var handlers = {
+    displayTodos: function() {
+        todoList.displayTodos();
+    },
+    // req 8.1 addTodo controls
+    addTodo: function() {
+        var addTodoTextInput = document.getElementById('addTodoTextInput');
+        todoList.addTodo(addTodoTextInput.value);
+        addTodoTextInput.value = '';
+    },
+    // req 8.2 changeTodo controls
+    changeTodo: function() {
+        var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+        var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+        todoList.changeTodo(changeTodoPositionInput.valueAsNumber,
+            changeTodoTextInput.value);
+        changeTodoPositionInput.value = '';
+        changeTodoTextInput.value = '';
+    },
+    // req 8.3 deleteTodo controls
+    deleteTodo: function() {
+        var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+        todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+        deleteTodoPositionInput.value = '';
+    },
+    // req 8.4 toggleTodo controls
+    toggleCompleted: function() {
+        var toggleCompletedPositionInput =
+        document.getElementById('toggleCompletedPositionInput');
+        todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+        toggleCompletedPositionInput.value = '';
+    },
+    toggleAll: function() {
+        todoList.toggleAll();
+    },
 
-// req 7.3 toggle all button should run toggleAll
-var toggleAllButton = document.getElementById('toggleAllButton');
-toggleAllButton.addEventListener('click', function() {
-    todoList.toggleAll();
-});
-
+};
 
 // display todos
 todoList.displayTodos();
