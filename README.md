@@ -54,3 +54,9 @@ Aimed toward implementing the [Vanilla JS version of TodoMVC](http://todomvc.com
 2. It should have working controls for .change
 3. It should have working controls for .deleteTodo
 4. It should have working controls for .toggleCompleted
+
+##V9 Requirements
+
+1. There should be an li element for every todo
+2. Each li element should contain .todoText
+3. Each li element should show .completed

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PracticalJS todo app v8</title>
+    <title>PracticalJS todo app v9</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>todo app v8</h1>
-    <p>still doesn't do anything but spew stuff to console, but now
-    has even more buttons and inputs that trigger things!</p>
+    <h1>todo app v9</h1>
+    <p>create, display, and maintain a todo list (as long as you don't
+refresh this window)</p>
 
     <!-- req 8.0 refactor -->
     <div>
-        <button onclick="handlers.displayTodos()">Display todos</button>
         <button onclick="handlers.toggleAll()">Toggle all</button>
     </div>
     
@@ -40,7 +39,12 @@
         <input id="toggleCompletedPositionInput" type="number">
     </div>
 
+    <!-- req 9.1 list -->
+    <ul>
+    </ul>
+
     <!-- load js late so our page is there to access -->
     <script type="text/javascript" src="program.js"></script>
+
 </body>
 </html>
