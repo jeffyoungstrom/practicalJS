@@ -1,47 +1,25 @@
 // req 3.1: store todos in an object
 var todoList = {
     todos: [],
-    displayTodos: function() {
-        if (this.todos.length === 0) {
-            // req 5.1 show message for no todos
-            console.log('You don\'t have any Todos. Take a nap!');
-        } else {
-            // req 5.1 show todoText property
-            // req 5.3 show completed property
-            console.log('My Todos:', this.todos);
-            for (var i=0; i < this.todos.length ; i++) {
-                var todo = this.todos[i];
-                if (todo.completed) {
-                    console.log('(x)', todo.todoText);
-                } else {
-                    console.log('( )', todo.todoText);
-                }
-            }
-        }
-    },
     // req 4.1 add Todo should add objects
     addTodo: function(todoText) {
         this.todos.push({
             todoText: todoText,
             completed: false
         });
-        this.displayTodos();
     },
     // req 4.2 changeTodo should change the todoText property
     changeTodo: function(index, value) {
         this.todos[index].todoText = value;
-        this.displayTodos();
     },
     // req 3.5 method to delete
     deleteTodo: function(index) {
         this.todos.splice(index, 1);
-        this.displayTodos();
     },
     // req 4.3 method to toggle completed
     toggleCompleted: function(index) {
         var todo = this.todos[index];   // todo is a reference.  interesting.
         todo.completed = !todo.completed;
-        this.displayTodos();
     },
     toggleAll: function() {
         var totalTodos = this.todos.length;
@@ -63,22 +41,18 @@ var todoList = {
                 this.todos[i].completed = true;
             }
         }
-
-        this.displayTodos();
     }
 
 };
 
 // req 8.0 refactor event handlers
 var handlers = {
-    displayTodos: function() {
-        todoList.displayTodos();
-    },
     // req 8.1 addTodo controls
     addTodo: function() {
         var addTodoTextInput = document.getElementById('addTodoTextInput');
         todoList.addTodo(addTodoTextInput.value);
         addTodoTextInput.value = '';
+        view.displayTodos();
     },
     // req 8.2 changeTodo controls
     changeTodo: function() {
@@ -88,12 +62,14 @@ var handlers = {
             changeTodoTextInput.value);
         changeTodoPositionInput.value = '';
         changeTodoTextInput.value = '';
+        view.displayTodos();
     },
     // req 8.3 deleteTodo controls
     deleteTodo: function() {
         var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
         todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
         deleteTodoPositionInput.value = '';
+        view.displayTodos();
     },
     // req 8.4 toggleTodo controls
     toggleCompleted: function() {
@@ -101,25 +77,34 @@ var handlers = {
         document.getElementById('toggleCompletedPositionInput');
         todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
         toggleCompletedPositionInput.value = '';
+        view.displayTodos();
     },
     toggleAll: function() {
         todoList.toggleAll();
+        view.displayTodos();
     },
 
 };
 
-// display todos
-todoList.displayTodos();
-// add todos
-todoList.addTodo('item 1');
-todoList.addTodo('item 2');
-todoList.addTodo('item 3');
-// change a todo
-todoList.changeTodo(1, 'item 2 v2');
-// delete a todo
-todoList.deleteTodo(2);
-// toggle a todo
-todoList.toggleCompleted(0);
-// toggle all
-todoList.toggleAll();
-todoList.toggleCompleted(1);
+// req 9.1 add a li for each todo item
+var view = {
+    displayTodos: function() {
+        var todosUl = document.querySelector('ul');
+        todosUl.innerHTML = '';
+        for (var i=0; i < todoList.todos.length; i++ ) {
+            var todoLi = document.createElement('li');
+            var todo = todoList.todos[i];
+            var todoTextWithCompletion='';
+
+            // req 9.2, 9.3 li should have completed and todoText
+            if (todo.completed === true) {
+                todoTextWithCompletion = '(x) ' + todo.todoText;
+            } else {
+                todoTextWithCompletion = '( ) ' + todo.todoText;
+            }
+
+            todoLi.textContent = todoTextWithCompletion;
+            todosUl.appendChild(todoLi);
+        }
+    }
+};
