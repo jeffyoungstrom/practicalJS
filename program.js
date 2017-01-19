@@ -65,10 +65,8 @@ var handlers = {
         view.displayTodos();
     },
     // req 8.3 deleteTodo controls
-    deleteTodo: function() {
-        var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-        todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-        deleteTodoPositionInput.value = '';
+    deleteTodo: function(position) {
+        todoList.deleteTodo(position);
         view.displayTodos();
     },
     // req 8.4 toggleTodo controls
@@ -103,8 +101,36 @@ var view = {
                 todoTextWithCompletion = '( ) ' + todo.todoText;
             }
 
+            // req 10.3 each todo needs an id
+            todoLi.id = i;
             todoLi.textContent = todoTextWithCompletion;
+            // req 10.2 each todo gets a delete button
+            todoLi.appendChild(this.createDeleteButton());
             todosUl.appendChild(todoLi);
         }
+    },
+    // req 10.1 create delete buttons
+    createDeleteButton: function() {
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'deleteButton';
+
+        return deleteButton;
+    },
+    setUpEventListeners: function() {
+        // req 10.4 delete buttons shoudl have access to todo id
+        var todosUl = document.querySelector('ul');
+        todosUl.addEventListener('click', function(event) {
+            // req 10.5 delete and update ui
+            // get the element that was clicked on
+            var elementClicked = event.target;
+            //check if elementClicked is a delete button
+            if (elementClicked.className === 'deleteButton') {
+                handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+            }
+            console.log();
+        });
     }
 };
+
+view.setUpEventListeners();
