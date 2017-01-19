@@ -120,3 +120,9 @@ var view = {
         return deleteButton;
     }
 };
+
+// req 10.4 delete buttons shoudl have access to todo id
+var todosUl = document.querySelector('ul');
+todosUl.addEventListener('click', function(event) {
+    console.log(event.target.parentNode.id);
+});
