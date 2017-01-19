@@ -103,6 +103,8 @@ var view = {
                 todoTextWithCompletion = '( ) ' + todo.todoText;
             }
 
+            // req 10.3 each todo needs an id
+            todoLi.id = i;
             todoLi.textContent = todoTextWithCompletion;
             // req 10.2 each todo gets a delete button
             todoLi.appendChild(this.createDeleteButton());
