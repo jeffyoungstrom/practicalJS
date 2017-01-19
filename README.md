@@ -60,3 +60,14 @@ Aimed toward implementing the [Vanilla JS version of TodoMVC](http://todomvc.com
 1. There should be an li element for every todo
 2. Each li element should contain .todoText
 3. Each li element should show .completed
+
+##v10 Requirements
+
+1. There should be a way to create delete buttons
+2. There should be a delete button for each todo
+3. Each li should have an id that has the todo position
+4. Delete buttons should have access to the todo id
+5. Clicking delete should update todoList.todods and the DOM
+
+
+
