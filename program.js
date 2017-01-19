@@ -104,6 +104,8 @@ var view = {
             }
 
             todoLi.textContent = todoTextWithCompletion;
+            // req 10.2 each todo gets a delete button
+            todoLi.appendChild(this.createDeleteButton());
             todosUl.appendChild(todoLi);
         }
     },
